@@ -2,12 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const messageRoutes = require("./Routes/messageRoutes");
 require("dotenv").config(); // If you're using environment variables
-
+const cors = require("cors");
 const app = express();
 
 // Middleware for parsing JSON bodies
 app.use(express.json());
-
+app.use(cors());
 // Connect to MongoDB
 mongoose
   .connect(process.env.MONGO_URI, {
